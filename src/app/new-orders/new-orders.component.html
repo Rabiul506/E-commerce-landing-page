@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new orders</title>
+</head>
+<body>
+    <h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let myData of newOrders" class="text-gray-800 text-sm ">
+    <button [class.selected]="myData === selectHeros" type="button" (click)="onSelect(myData)">
+      <span class="badge">{{myData.id}}</span>
+      <span class="name">{{myData.name}}</span>
+    </button>
+  </li>
+</ul>
+
+<div *ngIf="selectHeros">
+  <h2>{{selectHeros.name | uppercase}} Details</h2>
+  <div>id: {{selectHeros.id}}</div>
+  <div>
+    <label for="hero-name">Hero name: </label>
+    <input id="hero-name" [(ngModel)]="selectHeros.name" placeholder="name">
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Home</title>
+</head>
+<body class="">
+    <div class="container mx-auto  bg-white">
+        <!-- top part start  -->
+        <div class="py-5 flex items-center justify-start border-b-2 px-40">
+            <!-- logo  -->
+             <div class="text-gray-900 text-xl font-sans bg-yellow- pr-16">Shipper</div>
+             
+              <div class="flex items-center space-x-8 justify-between">
+                <!-- menu part  -->
+                <div class="flex items-center *:text-gray-900 *:font-serif *:text-sm *:font-medium *:capitalize gap-x-10">
+                    <div class="">categories</div>
+                    <div class="">New Arrival</div>
+                    <div class="">5 Start Rated</div>
+                </div>
+                <!-- search  -->
+                 <div class="w-96">
+                    <input type="search" placeholder="Search your desired once" class="placeholder:text-gray-500 placeholder:text-sm text-left pl-5 w-full rounded-full py-2 bg-white border-gray-400 border">
+                 </div>
+                 <!-- user -->
+                  <div class="">
+                    <img class="h-10 w-10 rounded-full border-gray-900" src="assets/images/male.png" alt="">
+                  </div>
+                  <div class="text-gray-900 text-sm font-serif font-medium">Support</div>
+                  <div class="text-gray-900 text-sm font-serif font-medium">cart</div>
+              </div>
+        </div>
+        <!-- top part start  -->
+         <!-- middel part start  -->
+          <div class="md:px-40 pt-3">
+            <!-- product heading  -->
+              <div class="xsm:mx-2 md:mx-0 text-gray-500 text-xs font-serif flex items-center">
+                 <div>Home <span class="px-1 font-medium text-sm">></span></div>
+                 <div>Jewelary and Accessories <span class="px-1 font-medium text-sm">></span></div>
+                 <div>Men's Watch<span class="px-2 font-medium text-sm">></span></div>
+                 <div class="line-clamp-1 text-gray-900">TPW classic Elegent Men's ...</div>
+              </div>
+              <!-- grid part  -->
+            <div class="xsm:mx-2 md:mx-0 grid grid-flow-row xsm:grid-rows-2 md:grid-cols-2 md:grid-rows-1  md:w-full pt-5 gap-x-10">
+                <!-- left part  -->
+                 <div class="col-span-1 xsm:row-span-1 pb-5">
+
+                     <div class="grid grid-cols-6 gap-x-3 w-full pb-5">
+                        <div class="col-span-1 space-y-3">
+
+                            @for(item of images; track $index){
+    
+                                <div class="flex flex-col space-y-3 justify-between *:w-16 *:h-16">
+                                    <img [src]="item.imageUrl" (click)="selectItem($index)" [ngClass]="{'border-2 border-red-500' :$index === index}" alt="Image {{$index + 1}}">
+                                </div>
+                            }
+                        </div>
+                       
+
+                            <div class="col-span-5">
+                                <!-- <img class="w-full h-[450px]" src="assets/images/w1.jpg" alt=""> -->
+                                @if(selectedImage){
+                                    <div class="relative">
+                                    <img class="w-full h-[446px]" [src]="images[index].imageUrl">
+
+                                    <button class="left absolute flex items-center justify-center top-[200px] left-0 h-12 w-7 border ml-2 font-bold text-lg text-white" (click)="leftArrow()">
+                                        <h4>-</h4>
+                                    </button>
+                                        <!-- right side arrow  -->
+                                    <button class="right absolute flex items-center justify-center top-[200px] right-0 h-12 w-7 border mr-2 font-bold text-lg text-white" (click)="rightArrow()">
+                                        <h4>+</h4>
+                                    </button>
+                                    </div>                                    
+                                }
+
+                            </div>
+                        
+                     </div>
+                     <div class="pl-3 pr-20">
+                        <div class="flex items-center space-x-5 text-green-500">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 text-green-600">
+                                <path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd" />
+                              </svg>
+                              </span>
+                              <div class="font-medium">Shippers Commitment</div>
+                              <div class="">></div>
+                        </div>
+                        <div class="ml-9 mt-2 bg-gray-100 rounded-md p-2">
+                            <div class="flex items-center space-x-3">
+                                <div class="h-4 w-4 rounded bg-gray-300"></div>
+                                <div class="text-green-600
+                                 font-medium text-sm">Quality Guarantee</div>
+                            </div>
+
+                            <div class="flex items-center space-x-3">
+                                <div class="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 text-green-600">
+                                        <path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd" />
+                                      </svg>
+                                </div>
+                                <div class="text-gray-500
+                                 font-medium text-xs">Only Quality Product we serve</div>
+                            </div>
+
+                            <div class="flex items-center space-x-3">
+                                <div class="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 text-green-600">
+                                        <path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd" />
+                                      </svg>
+                                </div>
+                                <div class="text-gray-500
+                                 font-medium text-xs">We deliver the same product you see on purchase</div>
+                            </div>
+                        </div>
+                        <div class="ml-9 mt-2 bg-gray-100 rounded-md p-2">
+                            <div class="flex items-center space-x-3">
+                                <div class="h-4 w-4 rounded bg-gray-300"></div>
+                                <div class="text-green-600
+                                 font-medium text-sm">Delivery Guarantee</div>
+                            </div>
+
+                            <div class="flex items-center space-x-3">
+                                <div class="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 text-green-600">
+                                        <path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd" />
+                                      </svg>
+                                </div>
+                                <div class="text-gray-500
+                                 font-medium text-xs">Maximum 3 days Delivery</div>
+                            </div>
+
+                            <div class="flex items-center space-x-3">
+                                <div class="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 text-green-600">
+                                        <path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd" />
+                                      </svg>
+                                </div>
+                                <div class="text-gray-500
+                                 font-medium text-xs">Return if item's damage</div>
+                            </div>
+
+                            <div class="flex items-center space-x-3">
+                                <div class="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 text-green-600">
+                                        <path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z" clip-rule="evenodd" />
+                                      </svg>
+                                </div>
+                                <div class="text-gray-500
+                                 font-medium text-xs">easy Return, Price Adjustment</div>
+                            </div>
+                        </div>
+                     </div>
+                     <!--  -->
+                     
+                 </div>
+
+                 <!-- right part  -->
+                  <div class="col-span-1 xsm:row-span-1">
+                    <div class="flex items-center space-x-3">
+                        <h4 class="text-2xl text-gray-500 font-bold">4.0</h4>
+                        <span class="text-xl text-gray-600 font-bold space-x-2">✩✩✩✩✩</span>
+                        <span class="border-gray-400 h-8 border"></span>
+                        <span class="text-gray-600 pl-5 text-sm">10.3k sold</span>
+                    </div>
+                    <div class="mt-3 text-gray-800 text-[18px]">
+                        SKMEI Fashion Quartz Waterproof Creative Stainless Steel Business Watch For Men 1260 Black Ghori Wala
+                    </div>
+                    <div class="text-yellow-500 text-[16px] my-3">
+                        Lowest ever <span class="text-2xl px-3">৳ 495</span> <del class="text-gray-400 text-sm">Taka 680</del>
+                    </div>
+                    <!-- variants  -->
+                    <div class="bg-[#FFC13F] rounded-md p-1">
+                        <div class="py-2 text-white text-xs pl-3 font-medium">Pick up variants</div>
+                        <div class="bg-white p-3 rounded-md">
+                            <h4 class="text-gray-900 text-sm">Color:</h4>
+                            <div class="mt-3 flex items-center justify-between space-x-2">
+                                <div class="rounded-md w-20 flex flex-col items-center border">
+                                    <img class="w-full rounded-t-md h-[80px]" src="assets/images/w1.jpg" alt="">
+                                    <h4 class="text-gray-800 text-xs">Black</h4>
+                                </div>
+                                <div class="rounded-md w-20 flex flex-col items-center border">
+                                    <img class="w-full rounded-t-md h-[80px]" src="assets/images/w1.jpg" alt="">
+                                    <h4 class="text-gray-800 text-xs">Black</h4>
+                                </div>
+                                <div class="rounded-md w-20 flex flex-col items-center border">
+                                    <img class="w-full rounded-t-md h-[80px]" src="assets/images/w1.jpg" alt="">
+                                    <h4 class="text-gray-800 text-xs">Black</h4>
+                                </div>
+                                <div class="rounded-md w-20 flex flex-col items-center border">
+                                    <img class="w-full rounded-t-md h-[80px]" src="assets/images/w1.jpg" alt="">
+                                    <h4 class="text-gray-800 text-xs">Black</h4>
+                                </div>
+                                <div class="rounded-md w-20 flex flex-col items-center border">
+                                    <img class="w-full rounded-t-md h-[80px]" src="assets/images/w1.jpg" alt="">
+                                    <h4 class="text-gray-800 text-xs">Black</h4>
+                                </div>
+                            </div>
+
+                            <h4 class="text-gray-900 text-sm mt-3 mb-1">Size:</h4>
+                            <div class="flex items-center justify-between">
+                                <div class="px-2 py-.5 border rounded text-[10px] w-max">XL/44cm</div>
+                                <div class="px-2 py-.5 border rounded text-[10px] w-max">XL/44cm</div>
+                                <div class="px-2 py-.5 border rounded text-[10px] w-max">XL/44cm</div>
+                                <div class="px-2 py-.5 border rounded text-[10px] w-max">XL/44cm</div>
+                                <div class="px-2 py-.5 border rounded text-[10px] w-max">XL/44cm</div>
+                                <div class="px-2 py-.5 border rounded text-[10px] w-max">XL/44cm</div>
+                            </div>
+
+                            <h4 class="text-gray-900 text-sm mt-3 mb-1">Material:</h4>
+                            <div class="flex items-center space-x-3 font-medium">
+                                <div class="px-2 py-.5 border rounded text-[10px] w-max">cotton</div>
+                                <div class="px-2 py-.5 border rounded text-[10px] w-max">lilen</div>
+                                <div class="px-2 py-.5 border rounded text-[10px] w-max">synthetic</div>
+                                
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Quantity part  -->
+                     <div class="flex mt-5 space-x-3">
+                         <h4 class="text-[15px] font-medium">Quantity: </h4>
+                         <div class="pl-3 border rounded w-20">3</div>
+                         <div class="text-yellow-500 text-sm"> Almost SoldOut / <span class="text-gray-600">Stock Available</span></div>
+                     </div>
+
+                     <!-- cart button  -->
+                      <div class="mt-10">
+                        <div class="cursor-pointer w-full py-2 rounded-full text-white bg-[#FFC13F] text-xl flex items-center justify-center">Add to cart </div>
+                      </div>
+                  </div>
+            </div>
+            <div class="grid xsm:mx-2 xsm:grid-rows-2 md:grid-cols-2 md:grid-rows-1 gap-10 w-full mb-10 pb-10">
+                <div class="col-span-1 border-t-2 pt-5">
+                    <div class="flex items-center space-x-2 w-full">
+                        <h4 class="text-xs text-gray-500 font-bold">302 reviews</h4>
+                        <span class="border-gray-400 h-8 border"></span>
+                        <h4 class="text-[16px] text-gray-500 font-bold">4.0</h4>
+                        <span class="text-[16px] text-gray-600 font-bold">✩✩✩✩✩</span>
+                        <span class="border-gray-400 h-8 border"></span>
+                        <span class="text-green-600 ml-5 p-1.5 bg-green-100 font-medium text-xs ">All reviews from verified purchased</span>
+                    </div>
+                    <!-- customer reviews  -->
+                    <div class="mt-4">
+                        <div class="flex space-x-2">
+                            <div class="">
+                                <img class="h-10 w-10 rounded-full border-gray-900" src="assets/images/male.png" alt="">
+                            </div>
+                            <div class="">
+                                <h4 class="text-gray-800 text-sm">Md.Nobita islam</h4>
+                                <h4 class="text-gray-400 text-sm">20 August 2024</h4>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <span class="text-xl text-gray-600 font-bold space-x-2">✩✩✩✩✩</span>
+                        </div>
+                        <div class="text-xs text-gray-600">
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="flex space-x-2">
+                            <div class="">
+                                <img class="h-10 w-10 rounded-full border-gray-900" src="assets/images/male.png" alt="">
+                            </div>
+                            <div class="">
+                                <h4 class="text-gray-800 text-sm">Md.Nobita islam</h4>
+                                <h4 class="text-gray-400 text-sm">20 August 2024</h4>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <span class="text-xl text-gray-600 font-bold space-x-2">✩✩✩✩✩</span>
+                        </div>
+                        <div class="text-xs text-gray-600">
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-center mt-10 ">
+                        <div class="cursor-pointer flex items-center justify-center rounded-full bg-green-100 text-gray-600 border border-green-400 px-10 py-1">See All reviews</div>
+                    </div>
+                </div>
+            </div>
+          </div>
+    </div>
+     <!-- middle part  -->
+      <div class="my-20 mx-20 flex flex-col gap-y-5">
+        <input [value]="username" type="text" placeholder="username" class="placeholder:text-gray-500 pl-2">
+        <button class="border px-10 bg-orange-500 rounded-lg text-white text-sm py-2" (click)="updateUser()">Update username</button>
+      </div>
+
+      <!-- counter up and down  -->
+
+      <!-- <div class="flex justify-start items-center gap-x-10">
+            <button (click)="updateCount(-1)" class="text-lg text-white bg-red-500 px-5 py-2 rounded flex itc justify-center">-</button>
+            <span class="px-5 border">{{counts}}</span>
+            <button (click)="updateCount(+1)" class="text-lg text-white bg-red-500 px-5 py-2 rounded flex itc justify-center">+</button>
+      </div> -->
+</body>
+</html>

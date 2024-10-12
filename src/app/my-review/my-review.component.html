@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>write reviews</title>
+</head>
+<body class="bg-neutral-100 relative">
+    <div class="container mx-auto  my-10">
+        <div class="grid grid-cols-6  w-full">
+            <!-- left side start  -->
+            <div class="col-span-1  px-3">
+                <div class="pb-3">
+                    <h3 class="text-xs text-gray-500 font-sans font-normal capitalize"> hello,Md.Rabiul Islam</h3>
+                    <button class="flex items-center text-[10px] font-sans font-semibold capitalize px-2 py-[5px] rounded-full bg-[#4DB34A] text-white mt-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" class="size-3 mr-1"  viewBox="0,0,256,256">
+                            <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(10.66667,10.66667)"><path d="M20.29297,5.29297l-11.29297,11.29297l-4.29297,-4.29297l-1.41406,1.41406l5.70703,5.70703l12.70703,-12.70703z"></path></g></g>
+                            </svg>
+                          
+                        verified account
+                    </button>
+                </div>
+                <div class=" ">
+                    <h3 class="text-base font-medium text-[#434446] capitalize">Mange my account</h3>
+                    
+                        <div class="pl-4 flex flex-col space-y-2 mt-3 text-gray-500 font-medium text-xs capitalize">
+                                <div class=" ">My Profile</div>
+                                <div class=" ">Address book</div>
+                                <div class="">My Payment option</div>
+                                <div class=" ">Daraz wallet</div>
+                                <div class=" ">Vouchers</div>
+                        </div>
+                    
+                </div>
+                <div class="my-3">
+                    <h3 class="text-base font-medium [#434446]">My Orders</h3>
+                    <div class="pl-4 flex flex-col space-y-2 mt-1 text-xs text-gray-500 font-medium">
+                        <div>My Returns</div>
+                        <div class="text-sm text-cyan-600">My Cancelletaion</div>
+                </div>                
+                </div>
+    
+                <div class="">
+                    <h3 class="text-base font-medium text-[#434446]  capitalize">My Reviews</h3>
+                </div>
+                <div class="mt-3">
+                    <h3 class="text-base font-medium text-[#434446] leading-tight capitalize">My Wishlist & followed store </h3>
+                </div>
+                <div class="mt-3">
+                    <h3 class="text-base font-medium text-[#434446]  capitalize">Sell on daraz</h3>
+                </div>
+            </div>
+            <!-- left side end  -->
+            <!-- rigth side start  -->
+            <div class="col-span-5 pt-5 px-3  w-full pl-3">
+                <div class="mb-5">
+                    <h2 class="text-xl font-normal text-gray-600 mb-3">Write Reviews</h2>
+                </div>
+    
+            <div class="bg-white p-3">
+                <div class="grid grid-cols-5">
+                    <!-- left side product reviews  -->
+                         <div class="col-span-3 w-full">
+                            <h4 class="text-gray-400 text-sm mb-3">Delivered on 11 Feb 2024</h4>
+                            <h4 class="text-gray-800 text-xs mb-3">Rate and review purchased product:</h4>
+                            <!-- product image and review  -->
+                            <div class="flex items-start w-full justify-start">
+                                <!-- images  -->
+                                 <div class="w-16 pr-5">
+                                    <img src="assets/images/p1.jpg
+                                    " alt="">
+                                 </div>
+                                  <!-- details  -->
+                                 <div class="w-full -mt-2">
+                                    <h4 class="text-gray-800 text-sm">
+                                        Super Screen Rib Trouser for Men - Black
+                                    </h4>
+                                    <h4 class="text-gray-500 text-xs capitalize">
+                                        color family:black, size: 34.
+                                    </h4>
+                                    <!-- star mark  -->
+                                <div class="flex items-center justify-start space-x-1">
+                                    <!-- star buttons  -->
+                                    <div class="flex items-center mt-3 ratings">
+                                    </div>
+
+                                    <!-- rating status  -->
+                                </div>
+                                    <!-- star mark  -->
+
+                                    <!-- review details  -->
+                                     <div class="pr-10 mt-2 w-full">
+                                        
+                                    </div>
+                                    <form [formGroup]="myReview"   class="mt-2 w-full">
+                                        <div class="flex items-center">
+                                            @for (item of '✩✩✩✩✩'; track item;  let i = $index) {
+                                                <!-- Item #{{ idx }}: {{ item.ratingName }} -->
+
+                                                <div class="text-[30px] " (click)="starRating(i + 1)"
+                                                [ngClass]="(myReview.get('rating')?.value ?? 0) >= i + 1 ? 
+                                                'text-yellow-500' : 
+                                                ''">{{item}} <span class="pl-5"> </span></div> 
+                                                <!-- <span>✩</span> -->
+                                                }
+                                                <div *ngIf="myReview.get('rating')?.value" class="">
+                                                    {{findRatingExpression()}}</div>
+                                        </div>
+
+                                        <div class="flex items-center justify-between w-full mb-3">
+                                            <label class="text-gray-800 text-xs" for="writeReview">
+                                               Review Details
+                                            </label>
+                                            <button class="text-blue-800 leading-tight text-xs">
+                                               How to write a good review
+                                             </button>
+                                        </div>
+                                        <textarea name="review" id="wreview" class="border h-24 w-full outline-none 
+                                        text-sm p-1 mb-3 placeholder:leading-relaxed" 
+                                        placeholder="What do you think of these product" formControlName="writeReview">
+                                        </textarea>
+                                        <!-- image add area start  -->
+                                         <!-- <div class="flex items-center justify-start my-5">
+                                            <button class="p-5 rounded-md border border-gray-500 flex 
+                                            items-center justify-center text text-gray-500">
+                                                    +
+                                            </button>
+                                         </div> -->
+                                         @for (item of myReview.get('images')?.value; track $index) {
+                                            <img width="20px" [src]="item" alt="">
+                                         }
+                                        <!-- image add area end  -->
+                                         <input id="img-file" type="file" (change)="addImageName()">
+                                        <button class="px-10 py-2 bg-orange-400 hover:bg-orange-500 
+                                        text-white flex-col items-center justify-center" type="submit">
+                                            Submit
+                                        </button>
+                                    </form>
+                                    <!-- review details  -->
+                                 </div>
+                            </div>
+                         </div>
+                        <!-- left side product reviews end -->
+                    </div>
+                </div>
+              </div>
+             <!-- rigth side end  -->
+
+
+<div class="container mx-auto mt-10">
+
+    <h4 class="mb-5">Product List 
+
+    </h4>
+    <div class="flex justify-between w-full gap-x-5">
+
+
+        @for(item of reviewProduct; track $index;){
+            <div class="w-full border p-3 text-sm">
+            <div class="flex-justify-between">
+                <div class="">{{item.id}}</div>
+            <div class="w-32 h-32">
+                {{item.imgs}}
+            </div>
+            </div>
+            <div class="">{{item.tittle}}</div>
+            <!-- <div class="">
+                <textarea name="text" id="one" placeholder="Comment here" class="placeholder:text-sm h-20 placeholder:text-gray-500 p-2 rounded-md border">
+
+                </textarea>
+            </div> -->
+            <button class="mt-3 px-2 py-1 rounded bg-green-400" (click)="openForm($index)">Rate this item</button>
+            </div>
+        }
+        
+    </div>
+</div>
+
+
+        </div>
+    </div>
+
+    @if(open){
+
+        <div class="model absolute top-0 left-0 h-screen w-screen flex items-center justify-center bg-gray-100 opacity-90" id="myModel"#myModel>
+            <div class="w-[600px] border rounded bg-white relative p-5 flex flex-col gap-y-2">
+                <div class="absolute -top-12 left-64 flex justify-center items-center">
+                    <img class="w-20 h-20 rounded-lg" src="assets/images/sthree.jpg" alt="">
+                </div>
+                <form action="" [formGroup]="reviewForm" (ngSubmit)="onSubmit(index)">
+    
+                <div class="flex items-center">
+                    @for (items of '✩✩✩✩✩'; track items;  let i = $index) {
+                        <!-- Item #{{ idx }}: {{ item.ratingName }} -->
+    
+                        <div class="text-[30px] " (click)="productRating(i + 1)"
+                        [ngClass]="(reviewForm.get('rating')?.value ?? 0) >= i + 1 ? 
+                        'text-yellow-500' : 
+                        ''">{{items}} <span class="pl-5"> </span></div> 
+                        <!-- <span>✩</span> -->
+                        }
+                </div>
+                <div class="">
+                    <textarea name="text" id="one" placeholder="Comment here" class="w-full placeholder:text-sm h-20 placeholder:text-gray-500 p-2 rounded-md border" formControlName="comment">
+    
+                    </textarea>
+                </div>
+                <div class="flex item-center gap-x-5">
+                    <button class="px-10 py-2 bg-orange-400 hover:bg-orange-500 
+                         text-white flex-col items-center justify-center" type="submit">
+                            Submit
+                </button>
+                <div class="cursor-pointer px-10 py-2 bg-orange-400 hover:bg-orange-500 text-white flex-col items-center justify-center" (click)="closeForm()">
+                            close
+                </div>
+                </div>
+
+                
+               </form>
+            </div>
+        </div>
+    }
+</body>
+</html>
+
+
+

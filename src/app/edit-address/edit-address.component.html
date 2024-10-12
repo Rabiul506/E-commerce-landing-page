@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>write reviews</title>
+</head>
+<body class="bg-neutral-100">
+    <div class="container mx-auto  my-10">
+        <div class="grid grid-cols-6  w-full">
+            <!-- left side start  -->
+            <div class="col-span-1  px-3">
+                <div class="pb-3">
+                    <h3 class="text-xs text-gray-500 font-sans font-normal capitalize"> hello,Md.Rabiul Islam</h3>
+                    <button class="flex items-center text-[10px] font-sans font-semibold capitalize px-2 py-[5px] rounded-full bg-[#4DB34A] text-white mt-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" class="size-3 mr-1"  viewBox="0,0,256,256">
+                            <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(10.66667,10.66667)"><path d="M20.29297,5.29297l-11.29297,11.29297l-4.29297,-4.29297l-1.41406,1.41406l5.70703,5.70703l12.70703,-12.70703z"></path></g></g>
+                            </svg>
+                          
+                        verified account
+                    </button>
+                </div>
+                <div class=" ">
+                    <h3 class="text-base font-medium text-[#434446] capitalize">Mange my account</h3>
+                    
+                        <div class="pl-4 flex flex-col space-y-2 mt-3 text-gray-500 font-medium text-xs capitalize">
+                                <div class=" ">My Profile</div>
+                                <div class="text-sm text-cyan-600">Address Book</div>
+                                <div class="">My Payment option</div>
+                                <div class=" ">Daraz wallet</div>
+                                <div class=" ">Vouchers</div>
+                        </div>
+                    
+                </div>
+                <div class="my-3">
+                    <h3 class="text-base font-medium [#434446]">My Orders</h3>
+                    <div class="pl-4 flex flex-col space-y-2 mt-1 text-xs text-gray-500 font-medium">
+                        <div>My Returns</div>
+                        <div>My Cancelletaion</div>
+                </div>                
+                </div>
+    
+                <div class="">
+                    <h3 class="text-base font-medium text-[#434446]  capitalize">My Reviews</h3>
+                </div>
+                <div class="mt-3">
+                    <h3 class="text-base font-medium text-[#434446] leading-tight capitalize">My Wishlist & followed store </h3>
+                </div>
+                <div class="mt-3">
+                    <h3 class="text-base font-medium text-[#434446]  capitalize">Sell on daraz</h3>
+                </div>
+            </div>
+            <!-- left side end  -->
+            <!-- rigth side start  -->
+            <div class="col-span-5 pt-5 px-3  w-full pl-3">
+                <div class="mb-5">
+                    <h2 class="text-xl font-normal text-gray-600 mb-3">New Address here</h2>
+                </div>
+    
+            <div class="bg-white p-5">
+                <div class="">
+                <form action="" [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+                <div class="grid grid-cols-10 gap-x-5">
+                    <!-- left side  -->
+                    <div class="col-span-4">
+                    <div class="mb-4 w-full">
+                            <!-- full name  -->
+                    <label class="block text-gray-700 font-bold mb-2" for="name">Full Name</label>
+                    <input class="w-full px-3 py-2 border border-gray-300 rounded-md" required formControlName="name" id="name" type="text" placeholder="Enter Full name" />
+                    </div>
+
+                    <!-- phone number  -->
+                    <div class="mb-4 w-full">
+                        <label class="block text-gray-700 font-bold mb-2" for="phone">Phone Number</label>
+                        <input class="w-full px-3 py-2 border border-gray-300 rounded-md" id="phoneNumber" type="text" placeholder="Your Phone Number" required formControlName="phone" />
+                    </div>
+
+                     <!-- your land mark  -->
+                     <div class="mb-4 w-full">
+                        <label class="block text-gray-700 font-bold mb-2" for="land mark">Landmark(optional)</label>
+                        <input class="w-full px-3 py-2 border border-gray-300 rounded-md" id="state" type="text" placeholder="e.g.b beside shajalal bank" required formControlName="landmark"/>
+                    </div>
+                    </div>
+                    <!-- left side end  -->
+
+                    <!-- righ side start  -->
+                     <div class="col-span-6 w-full">
+
+                         <!-- region  -->
+                         <div class="mb-4 w-full">
+                            <label class="block text-gray-700 font-bold mb-2" for="city">Province/Region</label>
+                            <input class="w-full px-3 py-2 border border-gray-300 rounded-md" required formControlName="region" id="region" type="text" placeholder="Your Region" />
+                        </div>
+
+                        <!-- city  -->
+                        <div class="mb-4 w-full">
+                            <label class="block text-gray-700 font-bold mb-2" for="city">City</label>
+                            <input class="w-full px-3 py-2 border border-gray-300 rounded-md" required formControlName="city" id="city" type="text" placeholder="Your city" />
+                        </div>
+
+                        <!-- city  -->
+                        <div class="mb-4 w-full">
+                            <label class="block text-gray-700 font-bold mb-2" for="zone">Zone</label>
+                            <input class="w-full px-3 py-2 border border-gray-300 rounded-md" required formControlName="zone" id="zone" type="text" placeholder="Your Zone" />
+                        </div>
+
+                        <!-- Adress here  -->
+                        <div class="mb-4 w-full">
+                            <label class="block text-gray-700 font-bold mb-2" for="address">Address</label>
+                            <input class="w-full px-3 py-2 border border-gray-300 rounded-md" id="address" type="text" placeholder="Your address" required formControlName="address"/>
+                        </div>
+
+                        <!-- Deafault Address  -->
+                       <div class="w-full">
+                        <label class="peer w-full py-2  rounded-md" >
+                            <input class="accent-green-500"  type="checkbox" id="isCheck" name="primary" formControlName="primary" />
+                            <span class="pl-2" (click)="defaultAddress()" type="button" >Is Deafault Address ?</span>
+                          </label>
+
+
+                          <!-- <input type="checkbox" id="check12" name="isDefault" class="accent-green-500">
+                          <button class="" >Is Deafault Address</button> -->
+                       </div>
+                        <!-- Deafault Address  -->
+
+                        <div class="pt-5 flex items-center w-full justify-between space-x-2">
+            
+                            <!-- Update Form  -->
+                            <div class="mb-4 w-full">
+                                <button class="w-full bg-gray-200 text-gray-400 font-normal py-2 px-4 rounded-md hover:bg-gray-300">Cancel</button>
+                            </div>
+                            
+                            <div class="mb-4 w-full">
+                                <button [disabled]="!addressForm.valid" type="submit" class="w-full bg-orange-500 text-white font-normal py-2 px-4 rounded-md hover:bg-orange-600">Save</button>
+                            </div>
+                        </div>
+                     </div>
+                    <!-- righ side end  -->
+                </div>
+                </form>
+                </div>
+                </div>
+              </div>
+             <!-- rigth side end  -->
+
+            
+            
+            
+    
+        </div>
+    </div>
+
+    <div class="p-6 bg-blue-100 flex flex-col gap-8">
+
+        <label for="amount" class="flex flex-col gap-2 w-64">
+            Fill number in range between 1 to 10
+            <input id="amount" type="number" min="1" max="10" value="0" class="appearance-none px-2 py-1 bg-white out-of-range:bg-red-300">
+        </label>
+    
+    </div>
+
+    <div class="p-6 bg-blue-100 flex flex-col gap-8">
+
+        <ul role="list" class="marker:text-blue-400 marker:content-['>'] backdrop:bg-black pl-5 space-y-3 text-slate-900">
+            <li>The first list item</li>
+            <li>The second list item</li>
+            <li>The third list item</li>
+        </ul>
+    
+    </div>
+</body>
+</html>
+
+
+
+

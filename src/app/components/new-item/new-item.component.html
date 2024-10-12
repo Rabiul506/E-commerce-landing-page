@@ -1,0 +1,47 @@
+<p>new-item works!</p>
+<div class="mt-10 container mx-auto">
+    <div class="w-full">
+      <div class="py-10 flex flex-col font-medium font-serif items-center justify-center bg-green-500">
+        <h4 class="text-white text-5xl">Inline Table Editing</h4>
+        <h4 class="text-white text-xl">CRUD with API</h4>
+      </div>
+
+      <!-- table  -->
+       <table class="table-auto w-full">
+          <thead>
+            <tr class="capitalize text-gray-600">
+              <th class="w-32 py-5 border">sr num:</th>
+              <th class="w-max py-5 border">Department Name</th>
+              <th class="w-max py-5 border">Department logo</th>
+              <th class="w-60 py-5 border">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of depeartmentList; track item; let sr = $index){
+
+              <tr class="capitalize text-gray-700 *:border">
+  
+                  <td>
+                    <!-- <input type="text" class="w-full pl-2 py-2 outline-none"> -->
+                    {{sr+1}}
+                  </td>
+  
+                  <td>
+                    {{item.departmentName}}
+                    <!-- <input type="text" class="w-full pl-2 py-2 outline-none"> -->
+                  </td>
+  
+                  <td>
+                    {{item.departmentLogo}}
+                    <!-- <input type="text" class="w-full pl-2 py-2 outline-none"> -->
+                  </td>
+                  <td class="flex items-center justify-between w-full">
+                    <button type="submit" class="w-full py-2 bg-green-600 text-center">create</button>
+                      <button type="submit" class="w-full py-2 bg-red-600 text-center">Delete</button>
+                  </td>
+              </tr>
+            }
+          </tbody>
+       </table>
+    </div>
+  </div>

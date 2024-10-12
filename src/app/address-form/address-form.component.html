@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address Form</title>
+</head>
+<body>
+    <!-- <div class="max-w-96 flex justify-center items-center container mx-auto">
+            <div class="bg-white"></div>
+    </div> -->
+
+        <div class="">
+            <div class="max-w-[600px] container mx-auto my-10 p-8 bg-white shadow-lg rounded-lg ">
+                <h2 class="text-2xl font-bold mb-6">Address Form</h2>
+                <form [formGroup]="addressForm" (ngSubmit)="onSubmit()" >
+                    <!-- name and phone  -->
+                    <div class="flex items-center w-full justify-between space-x-2">
+                        <div class="mb-4 w-full">
+                            <!-- full name  -->
+                            <label class="block text-gray-700 font-bold mb-2" for="name">Full Name</label>
+                            <input class="w-full px-3 py-2 border border-gray-300 rounded-md" required formControlName="name" id="name" type="text" placeholder="Enter Full name" />
+                          </div>
+                            <!-- phone number  -->
+                            <div class="mb-4 w-full">
+                                <label class="block text-gray-700 font-bold mb-2" for="phone">Phone Number</label>
+                                <input class="w-full px-3 py-2 border border-gray-300 rounded-md" id="phoneNumber" type="text" placeholder="Your Phone Number" required formControlName="phone" />
+                            </div>
+                    </div>
+                  <!-- name and phone end -->
+            
+                  <!-- email and address  -->
+                        <div class="flex items-center w-full justify-between space-x-2">
+                            <!-- email  -->
+                            <div class="mb-4 w-full">
+                                <label class="block text-gray-700 font-bold mb-2" for="email">Email</label>
+                                <input class="w-full px-3 py-2 border border-gray-300 rounded-md" id="email" type="email" placeholder="Your Email" required formControlName="email" />
+                            </div>
+                            <!-- Adress here  -->
+                            <div class="mb-4 w-full">
+                                <label class="block text-gray-700 font-bold mb-2" for="address">Address</label>
+                                <input class="w-full px-3 py-2 border border-gray-300 rounded-md" id="address" type="text" placeholder="Your address" required formControlName="address"/>
+                            </div>
+                        </div>
+                  <!-- email  and address-->
+            
+                  <!-- city and state  -->
+                   <div class="flex items-center w-full justify-between space-x-2">
+                              <!-- city  -->
+                            <div class="mb-4 w-full">
+                                <label class="block text-gray-700 font-bold mb-2" for="city">City</label>
+                                <input class="w-full px-3 py-2 border border-gray-300 rounded-md" required formControlName="city" id="city" type="text" placeholder="Your city" />
+                            </div>
+                            <!-- your State  -->
+                            <div class="mb-4 w-full">
+                                <label class="block text-gray-700 font-bold mb-2" for="state">State</label>
+                                <input class="w-full px-3 py-2 border border-gray-300 rounded-md" id="state" type="text" placeholder="Your state" required formControlName="state"/>
+                            </div>
+                            </div>
+            
+            
+                  <!-- city and state  end-->
+            
+                  <!-- country and zip code  -->
+            
+                  <div class="flex items-center w-full justify-between space-x-2">
+                              <!-- country  -->
+                        <div class="mb-4 w-full">
+                            <label class="block text-gray-700 font-bold mb-2" for="country">Country</label>
+                            <input class="w-full px-3 py-2 border border-gray-300 rounded-md" id="country" type="text" placeholder="Your country" required formControlName="country"/>
+                        </div>
+            
+                                    <!-- zip code  -->
+                        <div class="mb-4 w-full">
+                            <label class="block text-gray-700 font-bold mb-2" for="zip">ZIP Code</label>
+                            <input class="w-full px-3 py-2 border border-gray-300 rounded-md" required formControlName="zip" id="zip" type="text" placeholder="Your ZIP code" />
+                        </div>
+            
+                    </div>
+                  <!-- country and zip code  -->
+            
+            
+            
+            
+                  <!-- buttons  -->
+            
+                  <div class="flex items-center w-full justify-between space-x-2">
+            
+                    <!-- Update Form  -->
+                    <div class="mb-4 w-full">
+                        <button class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600">Update Form</button>
+                      </div>
+                    
+                      <div class="mb-4 w-full">
+                        <button [disabled]="!addressForm.valid" type="submit" class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600">Submit</button>
+                      </div>
+                    </div>
+                  
+                </form>
+              </div>
+              <div class="flex items-center justify-start">
+                {{ addressForm.get('name')?.value }} 
+              </div>
+        </div>
+
+</body>
+</html>

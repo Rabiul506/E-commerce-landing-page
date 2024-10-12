@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my-profile</title>
+</head>
+<body class="">
+    <!-- Facebook interface  -->
+ <div class="flex flex-col items-center justify-center mb-10">
+    <!-- looping content  -->
+    @for (post of posts; track post.id){
+        <div class="border-b pb-5 max-w-96 mt-3">
+            <!-- profile pic and tittleName  -->
+            <div class="flex justify-between items-start w-full">
+                <div class="flex justify-start items-start">
+                    <img [src]="post.myPhoto" alt="" class="w-10 h-10 rounded-full mt-2">
+                <div class="flex flex-col pt-2 text-gray-700  ml-2">
+                    <p class="font-medium text-base">{{post.name}}</p>
+                    <p class="text-gray-500 text-sm">{{post.time}} hr</p>
+                </div>
+                </div>
+                <!-- svg part  -->
+                 <svg xmlns="http://www.w3.org/2000/svg" file="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColer" class="size-8 stroke-gray-600 mt-3 cursor-pointer"></svg>
+
+            </div>
+            <h4 class="py-2 pl-2 text-sm">{{post.postTittle}}</h4>
+            <h4 class="pb-2 pl-2 text-gray-500 cursor-pointer text-xs">See Translation</h4>
+            <img [src]="post.image" alt="" class="w-96">
+            <div class="flex justify-between px-2 py-2">
+                <div class="flex items-center gap-1">
+                    <p class="text-gray-500 text-sm">{{post.like}}</p>
+
+                </div>
+                <div class="flex items-center gap-1">
+                    <p class="text-gray-500 text-sm">{{post.comment}} Comments</p>
+
+                </div>
+                <div class="flex items-center gap-1">
+                    <p class="text-gray-500 text-sm">{{post.share}} Share</p>
+
+                </div>
+            </div>
+        </div>
+    }
+ </div>
+</body>
+</html>

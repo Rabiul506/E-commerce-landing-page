@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Model</title>
+</head>
+<body class="font-serif bg-neutral-300">
+    <div class="container mx-auto">
+
+
+
+            <!-- Product Overview part start-->
+     <div class="mt-10 pb-10 bg-slate-50">
+        <div class="py-3 px-5 grid grid-flow-row grid-cols-2  border-b border-gray-300 md:text-xs text-gray-950 font-normal bg-white">
+            <div class="col-span-1 py-1 text-base font-semibold w-max flex flex-row justify-end items-start">Create Products</div>
+            <div class="col-span-1 flex flex-row items-center justify-end gap-x-3 w-full">
+                <button class="px-3 text-[10px] bg-green-300 py-[2px] w-max md:py-1 rounded" (click)="openForm()">Create Product</button>
+
+            </div>
+        </div>
+        <!-- my model part start open  -->
+
+        <div class="model" id="myModel" #myModel>
+
+            <form action="" [formGroup]="productForm" (ngSubmit)="onSubmit()">
+
+                <div class="grid grid-cols-4 gap-y-3 md:grid-cols-8 gap-x-2 w-full p-5 text-[14px]">
+                    <!-- left side product tittle and images  -->
+                    <div class="col-span-4 w-full">
+                        <div class="grid grid-cols-4 gap-x-3 bg-slate-100 p-3 rounded ">
+                            <div class="col-span-1 w-full ">
+                                <h3 class="text-[16px] font-semibold text-gray-950 text-center">Images</h3>
+                                <img class="w-full h-28 md:h-32 mt-2"
+                                 src="assets/images/jersy.jpg" alt="">
+                                <button class="px-2 bg-orange-400 py-1 text-[10px] font-normal text-gray-950 w-full mt-3 rounded">Upload image</button>
+                                 
+                            </div>
+                            <div class="col-span-3 w-full h-full">
+                                <div class="h-full text-gray-950 ">
+                                    <div class="w-full mt-0">
+                                        <label class="text-[12px] text-gray-950 " for="">Product Tittle</label>
+                                        <input type="text" class="form-control outline-none  rounded px-2 w-full border border-gray-300"  formControlName="tittle">
+                                        
+                                    </div>
+                                    <div class="mt-1 w-full">
+                                        <label class="text-[12px] text-gray-950" for="">Subtittle</label>
+                                        <input type="text" class="outline-none  rounded px-2 w-full border border-gray-300" formControlName="subTittle">
+                                        
+                                    </div>
+        
+                                    <div class="mt-1 space-x-3 flex flex-row items-center justify-between text-left w-full">
+                                        <div class="w-full">
+                                            <label class="text-[12px] text-gray-950" for="">Sku</label>
+                                            <input type="text" class="outline-none  rounded w-full  border border-gray-300" formControlName="sku">
+                                        </div>
+                                        <div class="w-full">
+                                            <label class="text-[12px] text-gray-950" for="">Total Stock</label>
+                                            <input type="text" class="outline-none  rounded w-full  border border-gray-300" formControlName="totalStock">
+                                        </div>
+                                        
+                                    </div>
+        
+                                    <div class="mt-1 space-x-3 flex flex-row items-center justify-between text-left w-full">
+                                        <div class="w-full">
+                                            <label class="text-[12px] text-gray-950" for="">Catagory</label>
+                                            <input type="text"  class="outline-none rounded  w-full border border-gray-300" formControlName="catagory">
+                                        </div>
+                                        <div class="w-full">
+                                            <label class="text-[12px] text-gray-950" for="">Brands</label>
+                                            <input type="text"  class="outline-none rounded  w-full border border-gray-300" formControlName="brands">
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="mt-1 space-x-3 flex flex-row items-center justify-between text-left w-full">
+                                        <div class="w-full">
+                                            <label class="text-[14px] text-orange-500 font-medium" for="">Regular Price</label>
+                                            <input type="text"  class="outline-none rounded  w-full border border-gray-300" formControlName="regPrice">
+                                        </div>
+                                        <div class="w-full">
+                                            <label class="text-[14px] text-green-500 font-medium" for="">Discount Price</label>
+                                            <input type="text"  class="outline-none rounded  w-full border border-gray-300"formControlName="discount">
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <!-- product description  -->
+                    </div>
+                    <!-- right side variant part  -->
+                    <div class="col-span-4 w-full bg-slate-100 p-3 rounded">
+                        <div>
+                            <div class="w-full">
+                                <label class="text-[12px] text-gray-950" for="">Specification</label>
+                                <textarea type="text" class="rounded outline-none w-full h-[72px] border border-gray-300" formControlName="specification"></textarea>
+                            </div>
+                            <div class="w-full text-gray-950">
+                                <label class="text-[12px] text-gray-950" for="">Description</label>
+                                <textarea type="text" class="rounded outline-none w-full h-[72px] border border-gray-300" formControlName="description"></textarea>
+                                
+                            </div>
+                            <div class="w-full text-gray-950">
+                                <label class="text-[12px] text-gray-950" for="">Material</label>
+                                <input type="text" class="rounded outline-none w-full border border-gray-300" formControlName="material">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="flex flex-row-reverse items-center pr-5 pb-10 gap-x-10">
+                <button type="submit"[disabled]="productForm.invalid"  class="px-10 text-[12px] bg-green-400 py-[2px] md:py-1 rounded" (click)="saveItems()">
+                    Save </button>
+                <button class="px-10 text-[12px] bg-orange-400 py-[2px] md:py-1 rounded" (click)="closeModel()">Cancel</button>
+            </div>
+        </div>
+        <!-- my model part end  -->
+
+        <div class="px-5 mx-5 pb-5 bg-slate-100">
+            <h3 class="text-gray-950 py-3 font-semibold text-base">Variant List:</h3>
+        <!-- variant list part  -->
+         @if(users.length !==0){
+             <div class="flex flex-col gap-y-5 overflow-x-auto">
+                 @for(item of users; track item; let i = $index){
+                     <div class="flex flex-row justify-between space-x-2 w-full items-center text-gray-950">
+                         <div class="">
+                             <h4 class="text-[12px]">Sales Price:</h4>
+ 
+                                 <h4  type="number" class="rounded px-2 w-24 outline-none bg-slate-200">{{item.discount}}</h4>
+                         </div>
+                         <div class="">
+                             <h4 class="text-[12px]">Regular Price:</h4>
+                             <h4  type="number" class="rounded px-2 w-24 outline-none bg-slate-200">{{item.regPrice}}</h4>
+                         </div>
+                         <div class="">
+                             <h4 class="text-[12px]">Stock:</h4>
+                             <h4  type="number" class="rounded px-2 w-24 outline-none bg-slate-200">{{item.regPrice}}</h4>
+                         </div>
+     
+                         <div class="">
+                             <h4 class="text-[12px]">Sku:</h4>
+                             <h4  type="number" class="rounded px-2 w-24 outline-none bg-slate-200">{{item.sku}}</h4>
+                         </div>
+     
+                         <div class="">
+                             <h4 class="text-[12px]">Color:</h4>
+                             <h4  type="number" class="rounded px-2 w-24 outline-none bg-slate-200">{{item.specification}}</h4>
+                         </div>
+     
+                         <div class="">
+                             <h4 class="text-[12px]">Size:</h4>
+                             <h4  type="number" class="rounded px-2 w-24 outline-none bg-slate-200">{{item.description}}</h4>
+                         </div>
+     
+                         <div class="">
+                             <h4 class="text-[12px]">Material:</h4>
+                             <h4  type="number" class="rounded px-2 w-24 outline-none bg-slate-200">{{item.material}}</h4>
+                         </div>
+                         <div>
+                             <img class="h-10 w-10" src="assets/images/jersy.jpg" alt="">
+                         </div>
+                         <button class="px-3 py-1 border border-orange-400 text-xs hover:bg-orange-400 hover:text-white" (click)="onDelete(i)"> 
+                             Remove</button>
+                     </div>
+                 }
+                
+             </div>
+         }@else {
+            <div class="text-center text-md">Item's Empty</div>
+         }
+        </div>
+
+ </div>
+<!-- Product Overview part end-->
+    </div>
+    
+
+</body>
+
+</html>
