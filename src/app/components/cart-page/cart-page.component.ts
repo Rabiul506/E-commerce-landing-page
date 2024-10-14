@@ -52,9 +52,9 @@ export class CartPageComponent {
   // }
   countLow(i:number){
     
-     this.cartLists[i].quantity != 1 && this.cartLists[i].quantity-- 
+      
 
-     if(this.cartLists[i].quantity--){
+     if(this.cartLists[i].quantity != 1 && this.cartLists[i].quantity--){
       this.cartLists[i].unitPrice -=  120;
      }
      this.orderSummery.subTotal = this.cartLists[i].unitPrice
@@ -63,10 +63,6 @@ export class CartPageComponent {
 
   updatePrice(i:number){
     this.cartLists[i].isSelected = !this.cartLists[i].isSelected 
-    // subTotal =  this.cartLists[i].isSelected
-    // if(this.cartLists[i].isSelected == true){
-    //   this.orderSummery.subTotal == this.cartLists[i].unitPrice * this.cartLists[i].quantity ;
-    // }
   }
 }
 
