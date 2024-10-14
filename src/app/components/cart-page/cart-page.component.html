@@ -23,24 +23,26 @@
              </div>
              <div class="bg-white pt-6 px-3">
                 <div class="grid grid-cols-4">
+                    @for(item of cartLists; track cartLists;  let i = $index ){
                     <div class="col-span-2">
-                        <div class="flex flex-row justify-start-items-start pb-10">
-                            <input type="checkbox">
-                            <img class="ml-2 w-20 border border-gray-300" src="assets/images/p1.jpg" alt="">
-                            <div class="">
-                                <h4 class="text-gray-800 text-sm capitalize ml-3">
-                                    Super Screen Rib Trouser for Men - Black
-                                </h4>
-                                <h4 class="text-gray-500 text-xs capitalize ml-3">
-                                    No Brand, Color Family:Black, Size:Int:36
-                                </h4>
+                            <div class="flex flex-row justify-start-items-start pb-10">
+                                <input type="checkbox"  (click)="updatePrice(i)">
+                                <img class="ml-2 w-20 border border-gray-300" src="assets/images/p1.jpg" alt="">
+                                <div class="">
+                                    <h4 class="text-gray-800 text-sm capitalize ml-3">
+                                        {{item.productName}}
+                                    </h4>
+                                    <h4 class="text-gray-500 text-xs capitalize ml-3">
+                                        No Brand, Color Family:Black, Size:Int:36
+                                    </h4>
+                                </div>
                             </div>
-                        </div>
+                        
                     </div>
 
                     <div class="col-span-1">
                         <div class="text-center  px-2 w-full">
-                            <h4 class="text-red-400">৳ 420</h4>
+                            <h4 class="text-red-400">৳ {{item.unitPrice}}</h4>
                             <div class="flex items-center justify-center">
 
                             </div>
@@ -48,12 +50,13 @@
                     </div>
                     <div class="col-span-1 text-right">
                         <div class="flex items-center space-x-2 justify-end pr-5">
-                            <div class="w-6 h-6 border rounded flex items-center justify-center text-lg text-gray-500 cursor-pointer">-</div>
-                        <div class="w-6 h-6 flex items-center justify-center text-lg text-gray-500">1</div>
-                        <div class="w-6 h-6 border rounded flex items-center justify-center text-lg text-gray-500 cursor-pointer">+</div>
+                            <div class="w-6 h-6 border rounded flex items-center justify-center text-lg text-gray-500 cursor-pointer" (click)="countLow(i)">-</div>
+                        <div class="w-6 h-6 flex items-center justify-center text-lg text-gray-500">{{item.quantity}}</div>
+                        <div class="w-6 h-6 border rounded flex items-center justify-center text-lg text-gray-500 cursor-pointer" (click)="countUp(i)">+</div>
                         </div>
 
                     </div>
+                }
                 </div>
             </div>  
         </div>
@@ -62,7 +65,7 @@
             <h4 class="text-gray-600 text-lg">Order summery</h4>
             <div class="flex items-center justify-between text-sm pt-4">
                 <h4 class="text-gray-500">Subtotal</h4>
-                <h4 class="text-gray-900">৳ 539</h4>
+                <h4 class="text-gray-900">৳ {{orderSummery.subTotal}}</h4>
             </div>
             <div class="flex items-center justify-between text-sm pt-4">
                 <h4 class="text-gray-500">Shiping fee</h4>
