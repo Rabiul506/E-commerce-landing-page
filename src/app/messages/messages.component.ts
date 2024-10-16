@@ -1,6 +1,6 @@
 import { PracticeService } from './../practice.service';
 import { NgFor, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -12,4 +12,12 @@ import { FormsModule } from '@angular/forms';
 })
 export class MessagesComponent {
   constructor(public practiceService: PracticeService){}
+
+  // for practice input and outout decorator 
+  @Input() categories: string[] = [];
+  @Output() categorySelected: EventEmitter<string> = new EventEmitter<string>();
+
+  selectCategory(category: string) {
+    this.categorySelected.emit(category);
+  }
 }

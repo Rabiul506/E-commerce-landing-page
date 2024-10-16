@@ -8,3 +8,12 @@
     <div *ngFor='let message of practiceService.messages'> {{message}} </div>
   
   </div>
+
+
+  <!-- practice for input and output decorator -->
+
+  <div class="filter">
+        <button class="px-5 py-2 mr-5 rounded-lg border bg-green-500 text-white text-sm" *ngFor="let category of categories" (click)="selectCategory(category)">
+          {{ category }}
+        </button>
+      </div>

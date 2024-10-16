@@ -23,10 +23,13 @@
              </div>
              <div class="bg-white pt-6 px-3">
                 <div class="grid grid-cols-4">
-                    @for(item of cartLists; track cartLists;  let i = $index ){
+                    @for(item of cartLists; track cartLists[i].unitPrice;  let i = $index ){
                     <div class="col-span-2">
                             <div class="flex flex-row justify-start-items-start pb-10">
-                                <input type="checkbox"  (click)="updatePrice(i)">
+                                  
+                                        <!-- <input type="checkbox" id="myCheckbox" (click)="updatePrice(i)"> -->
+                                        <input type="checkbox" (change)="updatePrice(i)">   
+
                                 <img class="ml-2 w-20 border border-gray-300" src="assets/images/p1.jpg" alt="">
                                 <div class="">
                                     <h4 class="text-gray-800 text-sm capitalize ml-3">
@@ -42,7 +45,7 @@
 
                     <div class="col-span-1">
                         <div class="text-center  px-2 w-full">
-                            <h4 class="text-red-400">৳ {{item.unitPrice}}</h4>
+                            <h4 class="text-red-400">৳ {{item.totalPrice}}</h4>
                             <div class="flex items-center justify-center">
 
                             </div>
@@ -54,7 +57,6 @@
                         <div class="w-6 h-6 flex items-center justify-center text-lg text-gray-500">{{item.quantity}}</div>
                         <div class="w-6 h-6 border rounded flex items-center justify-center text-lg text-gray-500 cursor-pointer" (click)="countUp(i)">+</div>
                         </div>
-
                     </div>
                 }
                 </div>
@@ -65,15 +67,15 @@
             <h4 class="text-gray-600 text-lg">Order summery</h4>
             <div class="flex items-center justify-between text-sm pt-4">
                 <h4 class="text-gray-500">Subtotal</h4>
-                <h4 class="text-gray-900">৳ {{orderSummery.subTotal}}</h4>
+                ৳ {{ orderSummery.subTotal > 0 ? orderSummery.subTotal : 0 }}
             </div>
             <div class="flex items-center justify-between text-sm pt-4">
                 <h4 class="text-gray-500">Shiping fee</h4>
-                <h4 class="text-gray-900">৳ 110</h4>
+                <h4 class="text-gray-900">৳ {{ orderSummery.shippingCost }}</h4>
             </div>
             <div class="flex items-center justify-between text-sm pt-4">
                 <h4 class="text-gray-500">Shiping fee discount</h4>
-                <h4 class="text-gray-900">৳ 70</h4>
+                <h4 class="text-gray-900">৳ 0</h4>
             </div>
             <!-- Vouchers and apply  -->
             <div class="flex items-center justify-between space-x-2 text-sm pt-4">
@@ -87,11 +89,16 @@
             <!-- total  -->
             <div class="flex items-center justify-between text-sm pt-4 mb-4">
                 <h4 class="text-gray-500">Total</h4>
-                <h4 class="text-red-500">৳ 579</h4>
+                <h4 class="text-red-500">৳ {{ orderSummery.grandTotal }}</h4>
             </div>
             <!-- proceed to checkout  -->
-            <div class="flex w-full items-center cursor-pointer px-8 transition-all duration-300 py-[8px] rounded-sm justify-center capitalize bg-orange-400 text-white text-sm">
+            <!-- <div class="flex w-full items-center cursor-pointer px-8 transition-all duration-300 py-[8px] rounded-sm justify-center capitalize bg-orange-400 text-white text-sm">
                 proceed to checkout(2)
+            </div> -->
+
+             <!-- Proceed to checkout -->
+             <div class="flex w-full items-center cursor-pointer px-8 transition-all duration-300 py-[8px] rounded-sm justify-center capitalize bg-orange-400 text-white text-sm">
+                proceed to checkout ({{ cartLists.length }})
             </div>
          </div>
     </div>

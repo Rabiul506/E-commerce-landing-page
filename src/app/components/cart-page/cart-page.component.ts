@@ -1,14 +1,18 @@
-import { Component } from '@angular/core';
-import { NgModel } from '@angular/forms';
+
+import { NgIf } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule, } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-cart-page',
   standalone: true,
-  imports: [ ],
+  imports: [ NgIf,],
   templateUrl: './cart-page.component.html',
   styleUrl: './cart-page.component.scss'
 })
-export class CartPageComponent {
+export class CartPageComponent implements OnInit{
 
    cartLists: cartList []= [
     {
@@ -17,7 +21,7 @@ export class CartPageComponent {
       unitPrice: 120,
       quantity: 1,
       totalPrice: 120,
-      isSelected: true
+      isSelected: false
     },
 
     {
@@ -26,7 +30,7 @@ export class CartPageComponent {
       unitPrice: 350,
       quantity: 1,
       totalPrice: 350,
-      isSelected: true
+      isSelected: false
     }
 
   ]
@@ -34,35 +38,55 @@ export class CartPageComponent {
 
   orderSummery = {
     subTotal: 0,
-    shippingCost: 0,
+    shippingCost: 60,
     grandTotal: 0
   }
 
   index: number = 0;
-
-  countUp(i: number){
-    
-     if(this.cartLists[i].quantity++){
-      this.cartLists[i].unitPrice +=  120;
-     }
-     this.orderSummery.subTotal = this.cartLists[i].unitPrice
+  
+  countUp(i: number): void {
+    this.cartLists[i].quantity++;
+    this.cartLists[i].totalPrice = this.cartLists[i].unitPrice * this.cartLists[i].quantity;
+    this.calculateSubTotal();
   }
-  // function myFunction(total, value, index, array) {
-  //   return total + value;
-  // }
-  countLow(i:number){
-    
-      
 
-     if(this.cartLists[i].quantity != 1 && this.cartLists[i].quantity--){
-      this.cartLists[i].unitPrice -=  120;
-     }
-     this.orderSummery.subTotal = this.cartLists[i].unitPrice
+
+  countLow(i:number): any{
+    if (this.cartLists[i].quantity > 1) {
+      this.cartLists[i].quantity--;
+      this.cartLists[i].totalPrice = this.cartLists[i].unitPrice * this.cartLists[i].quantity;
+      this.calculateSubTotal();
+    }
+
   }
+
+
+  calculateSubTotal(): void {
+    this.orderSummery.subTotal = this.cartLists
+      .filter(item => item.isSelected) // Only include selected items
+      .reduce((sum, item) => sum + item.totalPrice, 0);
+
+    this.calculateGrandTotal();
+  }
+
+    // Calculate the grand total by adding shipping cost
+    calculateGrandTotal(): void {
+      this.orderSummery.grandTotal = this.orderSummery.subTotal + this.orderSummery.shippingCost;
+    }
+
   // is selected product total price as per item 
+  
+  // isSelected:Boolean = false;
+  isChecked: boolean = false;  // Track checkbox state
+  
+  updatePrice(i:number,){
+    this.cartLists[i].isSelected = !this.cartLists[i].isSelected;
+    this.calculateSubTotal()
+      
+    }
 
-  updatePrice(i:number){
-    this.cartLists[i].isSelected = !this.cartLists[i].isSelected 
+  ngOnInit(): void {
+      this.calculateSubTotal()
   }
 }
 

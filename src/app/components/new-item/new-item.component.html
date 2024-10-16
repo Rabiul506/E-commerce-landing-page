@@ -45,3 +45,13 @@
        </table>
     </div>
   </div>
+<!-- for practice input and output decorator -->
+  <div class="my-20 mx-20">
+    <app-messages [categories]="categories" (categorySelected)="onCategorySelected($event)"></app-messages>
+    <div class="products">
+      <div *ngFor="let product of filteredProducts">
+        <h2>{{ product.name }}</h2>
+        <p>Price: {{ product.price }} USD</p>
+      </div>
+    </div>
+  </div>
