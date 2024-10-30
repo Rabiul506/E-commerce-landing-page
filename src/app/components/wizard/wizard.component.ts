@@ -1,10 +1,12 @@
-import { Component, ElementRef, OnInit, ViewChild, viewChild } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Component, computed, ElementRef, input, OnInit, TemplateRef, ViewChild, viewChild, ViewContainerRef } from '@angular/core';
+import { FormControl, FormGroup, NgControlStatus, ReactiveFormsModule } from '@angular/forms';
+import { NewItemComponent } from "../new-item/new-item.component";
+import { NgComponentOutlet, NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'app-wizard',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NewItemComponent,NgComponentOutlet,NgTemplateOutlet],
   templateUrl: './wizard.component.html',
   styleUrl: './wizard.component.scss'
 })
@@ -44,4 +46,27 @@ onSubmit(){
   console.log(this.employeFrom.value);
 
 }
+
+// for practice ng-template 
+@ViewChild('myTemplate', { read: TemplateRef }) myTemplate!: TemplateRef<any>;
+
+constructor(private viewContainerRef: ViewContainerRef) {}
+
+// Method to display the template fragment
+displayTemplate() {
+  this.viewContainerRef.createEmbeddedView(this.myTemplate);
+}
+
+// Method to clear the view if needed
+clearTemplate() {
+  this.viewContainerRef.clear();
+}
+
+initialCount = 18;
+
+isAdmin = input(false); 
+adminTemplate = viewChild('admin', {read: TemplateRef});
+basicTemplate = viewChild('basic', {read: TemplateRef}); 
+profileTemplate = computed(() => this.isAdmin() ? this.adminTemplate() : this.basicTemplate());
+
 }

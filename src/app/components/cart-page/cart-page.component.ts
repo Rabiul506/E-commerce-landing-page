@@ -2,13 +2,14 @@
 import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, } from '@angular/forms';
+import { NewItemComponent } from "../new-item/new-item.component";
 
 
 
 @Component({
   selector: 'app-cart-page',
   standalone: true,
-  imports: [ NgIf,],
+  imports: [NgIf, NewItemComponent],
   templateUrl: './cart-page.component.html',
   styleUrl: './cart-page.component.scss'
 })

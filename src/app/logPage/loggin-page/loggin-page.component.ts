@@ -16,7 +16,11 @@ export class LogginPageComponent {
 
   loginForm: FormGroup;
 
-  constructor(private router: Router, private loggingService: LoggingService){
+  constructor(
+    private router: Router,
+    private loggingService: LoggingService
+  )
+  {
 
   // Login Form start 
 
@@ -37,12 +41,20 @@ export class LogginPageComponent {
     const loginData = this.loginForm.value;
     const storedUserData = this.loggingService.getUser();
 
-    if (storedUserData && storedUserData.user === loginData.user && storedUserData.password === loginData.password) {
+    if (storedUserData && storedUserData.user === loginData.user && 
+      storedUserData.password === loginData.password) {
       alert('Login successful!');
       // Redirect to dashboard or other page
       this.router.navigate(['/home']); // Example page
+      console.log('login successfully');
+      console.log(this.loginForm.value);
+
+      
+      
     } else {
       alert('Invalid credentials');
+      console.log('invalid login');
+
     }
   }
 }

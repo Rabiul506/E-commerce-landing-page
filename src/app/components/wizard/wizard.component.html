@@ -88,8 +88,90 @@
     </div>
 }
 
-<div class="flex items-center justify-center  h-screen w-screen">
+<!-- <div class="flex items-center justify-center  h-screen w-screen">
     <div class="w-96 border rounded  h-32 bg-green-500">
         <h4 class="text-xl text-red-500">Bangladesh</h4>
     </div>
+</div> -->
+
+<!-- Rendering component practice  -->
+
+<div class="p-8 bg-gray-50 shadow-lg rounded-md max-w-2xl mx-auto">
+    <h2 class="text-2xl font-bold mb-6 text-gray-800">
+      This is the Parent Component
+    </h2>
+    
+    <!-- Pass content to the child component -->
+    <app-new-item >
+      <!-- Default projected content -->
+      <p class="text-gray-700 mb-4">
+        This is some content from the parent component passed to the child component!
+      </p>
+  
+      <!-- Header content to be projected -->
+      <h4 class="header text-xl font-bold text-purple-700">
+        Parent Header Content for rabiul islam 
+      </h4>
+  
+      <!-- Body content to be projected -->
+      <p class="body text-gray-600">
+        Parent Body Content, styled with Tailwind CSS.
+      </p>
+    </app-new-item>
+  </div>
+
+  <!-- for ng-template practice  -->
+
+  <div class="p-6 bg-gray-50 rounded-lg shadow-md">
+  <h2 class="text-xl font-bold mb-4">Template Fragment Example</h2>
+
+  <!-- Buttons to control the display of the template -->
+  <button class="bg-blue-500 text-white py-2 px-4 rounded mr-2" (click)="displayTemplate()">
+    Show Template Fragment
+  </button>
+  <button class="bg-red-500 text-white py-2 px-4 rounded" (click)="clearTemplate()">
+    Clear Template
+  </button>
+
+  <!-- Template fragment defined -->
+  <ng-template #myTemplate>
+    <div class="p-4 bg-blue-100 border border-blue-300 rounded-lg">
+      <h3 class="text-xl font-bold">This is a Template Fragment</h3>
+      <p class="text-gray-600">This content can be dynamically rendered.</p>
+    </div>
+  </ng-template>
+
+   <!-- Pass the template to the child component -->
+   <!-- <app-new-item [template]="myTemplate"></app-new-item> -->
 </div>
+
+<div class="">
+  <h1>Counter: {{ initialCount }}</h1>
+  <!-- <app-new-item [(count)]="initialCount"></app-new-item> -->
+</div>
+
+  <!-- sloting child  -->
+
+  <app-new-item>
+    <h1 card-title>Card Title</h1>
+    <p card-body>This is the card body content.</p>
+    <span card-footer>Footer text here</span>
+  </app-new-item>
+
+  <!-- ng container  -->
+
+  <div class="py-10">
+    <h2>Your profile</h2>    
+    <!-- <ng-container [ngTemplateOutlet]="profileTemplate()" /> -->
+
+    <ng-template #admin>This is the admin profile</ng-template>   
+    <ng-template #basic>This is the basic profile</ng-template>
+  </div>
+
+  <div class="text-2xl font-bold">
+    <app-new-item [names1]="'Awesome product'">
+
+    </app-new-item>
+  </div>
+
+  

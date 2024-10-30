@@ -1,13 +1,13 @@
-<p>new-item works!</p>
+<!-- <p>new-item works!</p>
 <div class="mt-10 container mx-auto">
     <div class="w-full">
       <div class="py-10 flex flex-col font-medium font-serif items-center justify-center bg-green-500">
         <h4 class="text-white text-5xl">Inline Table Editing</h4>
         <h4 class="text-white text-xl">CRUD with API</h4>
-      </div>
+      </div> -->
 
       <!-- table  -->
-       <table class="table-auto w-full">
+       <!-- <table class="table-auto w-full">
           <thead>
             <tr class="capitalize text-gray-600">
               <th class="w-32 py-5 border">sr num:</th>
@@ -22,18 +22,18 @@
               <tr class="capitalize text-gray-700 *:border">
   
                   <td>
-                    <!-- <input type="text" class="w-full pl-2 py-2 outline-none"> -->
+
                     {{sr+1}}
                   </td>
   
                   <td>
                     {{item.departmentName}}
-                    <!-- <input type="text" class="w-full pl-2 py-2 outline-none"> -->
+
                   </td>
   
                   <td>
                     {{item.departmentLogo}}
-                    <!-- <input type="text" class="w-full pl-2 py-2 outline-none"> -->
+
                   </td>
                   <td class="flex items-center justify-between w-full">
                     <button type="submit" class="w-full py-2 bg-green-600 text-center">create</button>
@@ -42,11 +42,11 @@
               </tr>
             }
           </tbody>
-       </table>
-    </div>
-  </div>
+       </table> -->
+    <!-- </div>
+  </div> -->
 <!-- for practice input and output decorator -->
-  <div class="my-20 mx-20">
+  <!-- <div class="my-20 mx-20">
     <app-messages [categories]="categories" (categorySelected)="onCategorySelected($event)"></app-messages>
     <div class="products">
       <div *ngFor="let product of filteredProducts">
@@ -54,4 +54,126 @@
         <p>Price: {{ product.price }} USD</p>
       </div>
     </div>
+  </div> -->
+
+  <!-- for pracrtice rendering component sloting child component with ng-content -->
+
+
+  <div class="p-6 bg-gray-100 border-2 border-gray-300 rounded-lg">
+    <h3 class="text-lg font-bold mb-4 text-gray-800">
+      This is inside the child component
+    </h3>
+    
+    <!-- Projected general content from the parent -->
+    <div class="bg-white p-4 rounded-lg shadow mb-4">
+      <ng-content>great</ng-content>
+    </div>
+  
+    <hr class="my-4">
+  
+    <!-- Projected header content from the parent -->
+    <h4 class="text-xl font-semibold text-purple-600">
+      Projected Header Content:
+    </h4>
+    <div class="bg-purple-50 p-4 border-2 border-purple-400 rounded-lg mb-4">
+      <ng-content select="header"></ng-content>
+    </div>
+  
+    <hr class="my-4">
+  
+    <!-- Projected body content from the parent -->
+    <h4 class="text-xl font-semibold text-green-600">
+      Projected Body Content:
+    </h4>
+    <div class="bg-green-50 p-4 border-2 border-green-400 rounded-lg">
+      <ng-content select="body"></ng-content>
+    </div>
   </div>
+
+  <!-- for practice ng-template  -->
+
+  <div class="p-6 bg-gray-100 rounded-lg shadow-md">
+    <h2 class="text-lg font-bold mb-4">Child Component</h2>
+    
+    <!-- The shared template content will be rendered below -->
+    <div #viewContainer></div>
+  </div>
+  
+  <div class="grid grid-cols-3 gap-4 grid-flow-row-dense grid-rows-3">
+    <div class="bg-red-300 p-4 row-span-2">Item 1</div>
+    <div class="bg-red-300 p-4 col-span-2 row-span-2">Item 2 (spans 2 columns)</div>
+    <div class="bg-red-300 p-4 col-span-2">Item 3</div>
+    <div class="bg-red-300 p-4 ">Item 4</div>
+    <div class="bg-red-300 p-4 row-span-3">Item 5</div>
+    <div class="bg-red-300 p-4 ">Item 6</div>
+  </div>
+  
+  <h4 class="py-5">angular Template</h4>
+
+  <div class="px-10 py-5" >  <input class="border" type="text" (keyup)="updateField($event)" placeholder="type text"/>
+  </div>
+
+  <!-- two way binding  -->
+
+  <!-- <button (click)="updateCount(-1)">-</button>    
+  <span>{{ count }}</span>    
+  <button (click)="updateCount(+1)">+</button> -->
+  <!-- <input type="text" (keyup.shift.enter)="updateField2($event)" /> -->
+  
+  <!-- sloting child example  -->
+
+  <div class="card">
+    <header class="card-header">
+      <ng-content select="[card-title]"></ng-content>
+    </header>
+    <div class="card-body">
+      <ng-content select="[card-body]"></ng-content>
+    </div>
+    <footer class="card-footer">
+      <ng-content select="[card-footer]"></ng-content>
+    </footer>
+  </div>
+  
+
+  <div class="px-5 py-10">
+      <div class="">{{products1Name}}</div>
+  </div>
+
+  <!-- binding with text interpolation property and attribute binding  -->
+<div class="w-full mb-20 mx-20">
+
+  <div class="profile-card p-3 border hover:shadow-lg hover:scale-105 transition-all rounded-md w-64 bg-white text-gray-700 text-sm font-medium flex flex-col gap-y-4">
+
+    <!-- Property Binding for the Image Source and Alt Text -->
+    <img class="h-10 w-10" [src]="userProfileImage" [alt]="userName + ' Profile Picture'" />
+  
+    <!-- Text Interpolation for Displaying User's Name -->
+    <h2>{{ userName }}</h2>
+  
+    <!-- Attribute Binding for Role (e.g., to define accessibility) -->
+    <p [attr.role]="userRole">{{ userStatus }}</p>
+  </div>
+  </div>
+  
+
+  <!-- attribute directive in directive chapter  -->
+
+  <h1>My First Attribute Directive</h1>
+<h2>Pick a highlight color</h2>
+<div class="mb-20">
+  <!-- <input type="radio" name="colors" (click)="color='lightgreen'">Green
+  <input type="radio" name="colors" (click)="color='yellow'">Yellow
+  <input type="radio" name="colors" (click)="color='cyan'">Cyan -->
+
+  <div class="border p-5" (click)="redColor()">my color</div>
+  <div class="border p-5" (click)="greenColor()">my color</div>
+  <div class="border p-5" (click)="cyanColor()">my color</div>
+</div>
+<p [ngClass]="color">Highlight me!</p>
+
+<div class="pb-20">
+  <div class="w-60 py-10 text-center" [ngClass]="isColor ? 'bg-orange-500' : 'bg-cyan-600'">
+    current color
+  </div>
+  <button class="pt-5 p-2 border text-center bg-green-400" (click)="toggleColor()">change Color</button>
+</div>

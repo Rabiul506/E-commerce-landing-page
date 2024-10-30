@@ -12,7 +12,10 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class SignUpComponent {
     regForm: FormGroup
-    constructor(private router: Router, private loggingService: LoggingService ){
+    constructor(
+      private router: Router,
+      private loggingService: LoggingService )
+       {
       this.regForm = new FormGroup({
         phone: new FormControl('', Validators.required),
         user: new FormControl('', Validators.required),
@@ -26,19 +29,16 @@ export class SignUpComponent {
   }
 
   onSubmit(){
-  //   const isLocalData = localStorage.getItem("regForm")
-  //   if(isLocalData != null){
-  //     const localArray = JSON.parse(isLocalData);
-  //     localArray.push(this.regForm.value);
-  //     localStorage.setItem("regForm",JSON.stringify(localArray))
-  //   }else{
-  //     const localArray = [];
-  //     localArray.push(this.regForm.value);
-  //     localStorage.setItem("regForm",JSON.stringify(localArray))
-  //   }
-  //   alert('Registration Success')
-  // }
-  if (this.regForm.valid) {
+
+  if (this.regForm.valid
+    // storedUserData && storedUserData.user === storedUserData.user && 
+    // storedUserData.password === loginData.password
+    
+  ) {
+    // alert('Already registered!');
+
+    //   console.log('Already registered');
+
     const userData = {
       phone: this.regForm.value.phone,
       user: this.regForm.value.user,
@@ -49,6 +49,12 @@ export class SignUpComponent {
     this.loggingService.saveUser(userData);
     alert('Signup successful!');
     this.router.navigate(['/loggin-page']);
+    console.log('signup sucessfully !!');
+    console.log(this.regForm.value);
+    
     }
   }
+
+  
+  
 }
