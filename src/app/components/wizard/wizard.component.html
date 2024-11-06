@@ -102,21 +102,18 @@
     </h2>
     
     <!-- Pass content to the child component -->
-    <app-new-item >
-      <!-- Default projected content -->
-      <p class="text-gray-700 mb-4">
-        This is some content from the parent component passed to the child component!
-      </p>
-  
-      <!-- Header content to be projected -->
-      <h4 class="header text-xl font-bold text-purple-700">
-        Parent Header Content for rabiul islam 
-      </h4>
-  
-      <!-- Body content to be projected -->
-      <p class="body text-gray-600">
-        Parent Body Content, styled with Tailwind CSS.
-      </p>
+        
+        <app-new-item [names1]="'Awesome product'" > 
+
+      <div cardItem class="">
+        <h1 card-title>Card Title</h1>
+        <p card-body>This is the card body content.</p>
+        <span card-footer>Footer text here</span>
+      </div>
+
+
+      <div  class="cardItem text-2xl font-bold">
+      </div>
     </app-new-item>
   </div>
 
@@ -152,12 +149,6 @@
 
   <!-- sloting child  -->
 
-  <app-new-item>
-    <h1 card-title>Card Title</h1>
-    <p card-body>This is the card body content.</p>
-    <span card-footer>Footer text here</span>
-  </app-new-item>
-
   <!-- ng container  -->
 
   <div class="py-10">
@@ -168,10 +159,6 @@
     <ng-template #basic>This is the basic profile</ng-template>
   </div>
 
-  <div class="text-2xl font-bold">
-    <app-new-item [names1]="'Awesome product'">
 
-    </app-new-item>
-  </div>
 
   

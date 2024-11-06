@@ -56,7 +56,8 @@
             Add Skill
           </button>
       
-          <div *ngFor="let skill of skills.controls; let i = index" formGroupName="i" class="mb-4 p-4 border border-gray-200 rounded-md bg-gray-50">
+          <div *ngFor="let skillForm of skills.controls; let i = index" class="mb-4 p-4 border border-gray-200 rounded-md bg-gray-50">
+            <div class="" (formGroupName)="skillForm">
             <!-- Skill Name Field -->
             <div class="mb-2">
               <label for="skillName" class="block text-gray-600 font-medium mb-1">Skill Name:</label>
@@ -90,12 +91,13 @@
               Remove Skill
             </button>
           </div>
+          </div>
         </div>
       
         <!-- Submit Button -->
         <button 
           type="submit" 
-          [disabled]="!jobApplicationForm.valid" 
+          [disabled]="jobApplicationForm.invalid" 
           class="w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
           Submit Application
         </button>

@@ -40,6 +40,10 @@ import { ShipReviewComponent } from './components/ship-review/ship-review.compon
 import { PersonalComponent } from './portfolio/personal/personal.component';
 import { NewItemComponent } from './components/new-item/new-item.component';
 import { WizardComponent } from './components/wizard/wizard.component';
+import { StudentFormsComponent } from './student-forms/student-forms.component';
+import { ParentComponent } from './practice/parent/parent.component';
+import { ChildComponent } from './practice/child/child.component';
+import { ChildBComponent } from './practice/child-b/child-b.component';
 
 
 
@@ -47,7 +51,7 @@ import { WizardComponent } from './components/wizard/wizard.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,RouterModule,ProHomeComponent,ShipReviewComponent,PersonalComponent,NewOrdersComponent,MessagesComponent, HomePageComponent,ManageAccountsComponent,MyOrdersComponent,AddressBookComponent,PaymentOptionsComponent, VouchersComponent,MyReturnsComponent,CancelationComponent,ReviewsComponent,CreateAccountComponent,LoginComponent,SellerLoginComponent,SellerCreateAccountComponent,MyAccountsComponent,FaqComponent,CartPageComponent,HowToReturnComponent,AddressFormComponent,MyPostComponent,WriteReviewComponent,MyReviewComponent,EditAddressComponent,DefineComponent,GetApiComponent,PostApiComponent,ButtonApiComponent,LogginPageComponent,LayoutComponent,DashboardComponent,ProductModelComponent,SignUpComponent,AdminLoginComponent,NewItemComponent,WizardComponent],
+  imports: [RouterOutlet,RouterModule,StudentFormsComponent,ParentComponent,ChildComponent,ChildBComponent, ProHomeComponent,ShipReviewComponent,PersonalComponent,NewOrdersComponent,MessagesComponent, HomePageComponent,ManageAccountsComponent,MyOrdersComponent,AddressBookComponent,PaymentOptionsComponent, VouchersComponent,MyReturnsComponent,CancelationComponent,ReviewsComponent,CreateAccountComponent,LoginComponent,SellerLoginComponent,SellerCreateAccountComponent,MyAccountsComponent,FaqComponent,CartPageComponent,HowToReturnComponent,AddressFormComponent,MyPostComponent,WriteReviewComponent,MyReviewComponent,EditAddressComponent,DefineComponent,GetApiComponent,PostApiComponent,ButtonApiComponent,LogginPageComponent,LayoutComponent,DashboardComponent,ProductModelComponent,SignUpComponent,AdminLoginComponent,NewItemComponent,WizardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

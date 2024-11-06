@@ -119,6 +119,8 @@ export class NewItemComponent implements OnInit{
   //       this.highlight(this.appHighlight || 'red');  
   //     }
 
+
+  userRoless: string = 'user'; // This could be dynamically set based on user data
 }
 
 export interface Depertment {

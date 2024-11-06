@@ -59,14 +59,14 @@
   <!-- for pracrtice rendering component sloting child component with ng-content -->
 
 
-  <div class="p-6 bg-gray-100 border-2 border-gray-300 rounded-lg">
+  <div select="mainChild" class=" p-6 bg-gray-100 border-2 border-gray-300 rounded-lg">
     <h3 class="text-lg font-bold mb-4 text-gray-800">
       This is inside the child component
     </h3>
     
     <!-- Projected general content from the parent -->
     <div class="bg-white p-4 rounded-lg shadow mb-4">
-      <ng-content>great</ng-content>
+      <!-- <ng-content>great</ng-content> -->
     </div>
   
     <hr class="my-4">
@@ -122,7 +122,7 @@
   
   <!-- sloting child example  -->
 
-  <div class="card">
+  <ng-content select="[cardItem]" class="card">
     <header class="card-header">
       <ng-content select="[card-title]"></ng-content>
     </header>
@@ -132,7 +132,7 @@
     <footer class="card-footer">
       <ng-content select="[card-footer]"></ng-content>
     </footer>
-  </div>
+  </ng-content>
   
 
   <div class="px-5 py-10">
@@ -177,3 +177,30 @@
   </div>
   <button class="pt-5 p-2 border text-center bg-green-400" (click)="toggleColor()">change Color</button>
 </div>
+
+
+
+<!-- ng content template container [ngTemplateOutlet] exp -->
+<div class="pt-20"></div>
+<div class="text-2xl text-black">This is normal syntext</div>
+<ng-template #myRefer>
+ <p class="text-black">This is a fragment</p>
+</ng-template>
+<div class="pb-20"></div>
+
+
+<ng-container [ngTemplateOutlet]="myRefer" />
+
+
+<ng-template #adminTemplate>
+  <p>Welcome, Admin! Here are your privileged insights.</p>
+  <!-- Admin-specific widgets here -->
+</ng-template>
+
+<ng-template #userTemplate>
+  <p>Welcome, User! Here are your regular insights.</p>
+  <!-- User-specific widgets here -->
+</ng-template>
+
+<ng-container [ngTemplateOutlet]="userRoless === 'admin' ? adminTemplate : userTemplate"></ng-container>
+

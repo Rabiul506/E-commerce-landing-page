@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoggingService } from '../../services/logging.service';
@@ -10,7 +10,7 @@ import { LoggingService } from '../../services/logging.service';
   templateUrl: './loggin-page.component.html',
   styleUrl: './loggin-page.component.scss'
 })
-export class LogginPageComponent {
+export class LogginPageComponent{
 
   isLoginView: boolean = false;
 
@@ -48,13 +48,12 @@ export class LogginPageComponent {
       this.router.navigate(['/home']); // Example page
       console.log('login successfully');
       console.log(this.loginForm.value);
-
-      
-      
     } else {
       alert('Invalid credentials');
       console.log('invalid login');
 
     }
   }
+
+ 
 }

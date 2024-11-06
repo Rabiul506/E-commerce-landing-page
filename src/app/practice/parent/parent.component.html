@@ -1,0 +1,56 @@
+<div class="text-center mt-10 font-bold">
+    This is parent
+</div>
+
+<div class="text-center text-2xl font-semibold text-green-500 py-5" #bd>
+    Bangladesh
+</div>
+
+<p #messageEl class="text-green-500">Message: Click the button to see the rating.</p>
+
+<app-child [data]="sharedData" (dataChange)="onChildDataChange($event)">
+    <div class="" slot="ones">
+        <h4 class="font-semibold text-xl">This is my first Text</h4>
+    </div>
+    <div class="" slot="two">
+        <h4 class="font-semibold text-xl">2nd</h4>
+    </div>
+    
+</app-child>
+
+<!-- parent share data  -->
+ <div class="text-center text-xl font-semibold">
+parent share data
+<h4 class="text-xl">Parent share data {{sharedData}}</h4>
+ </div>
+
+<!-- ng container with ngTemplateOutlet and using ng-template -->
+
+<div class="my-3 text-sm font-semibold text-center">ng container with ngTemplateOutlet and using ng-template</div>
+
+<ng-template #adminTemplate>
+    <p>Welcome, Admin! Here are your privileged insights.</p>
+    <!-- Admin-specific widgets here -->
+  </ng-template>
+  
+  <ng-template #userTemplate>
+    <p>Welcome, User! Here are your regular insights.</p>
+    <!-- User-specific widgets here -->
+  </ng-template>
+  
+  <ng-container [ngTemplateOutlet]="userRoles === 'admin' ? adminTemplate : userTemplate"></ng-container>
+
+
+  <button (click)="loadContent()">Load content</button>
+
+  <!-- <outer-container>
+    <p>This is the start of the outer container</p>
+    <inner-item>
+      <button>Load content</button>
+    </inner-item>
+    <leaf-content>This is the leaf content</leaf-content>
+    <p>This is the end of the outer container</p>
+  </outer-container> -->
+
+  flower=>"🌺">
+  

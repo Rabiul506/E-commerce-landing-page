@@ -40,6 +40,10 @@ import { ProHomeComponent } from './components/pro-home/pro-home.component';
 import { ShipReviewComponent } from './components/ship-review/ship-review.component';
 import { NewItemComponent } from './components/new-item/new-item.component';
 import { WizardComponent } from './components/wizard/wizard.component';
+import { StudentFormsComponent } from './student-forms/student-forms.component';
+import { ParentComponent } from './practice/parent/parent.component';
+import { ChildComponent } from './practice/child/child.component';
+import { ChildBComponent } from './practice/child-b/child-b.component';
 
 
 
@@ -118,6 +122,18 @@ export const routes: Routes = [
             },
             {
                 path: 'wizard', component:WizardComponent
+            },
+            {
+                path: 'studentForms', component:StudentFormsComponent
+            },
+            {
+                path: 'parent', component:ParentComponent
+            },
+            {
+                path: 'child', component:ChildComponent
+            },
+            {
+                path: 'childB', component:ChildBComponent
             }
            
     
