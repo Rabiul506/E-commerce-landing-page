@@ -9,6 +9,12 @@ export class LoggingService {
 
   // Save user data to localStorage
   saveUser(userData: { phone: string,user: string, password: string}): void {
+    const storedData = localStorage.getItem('userData');
+    const users = storedData ? JSON.parse(storedData) : [];
+
+    // Add the new user to the array
+    users.push(userData);
+    
     localStorage.setItem('userData', JSON.stringify(userData));
   }
 

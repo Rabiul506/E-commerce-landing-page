@@ -41,4 +41,18 @@ export const data = [
     id: number;
     name: string;
   }
+
+  export interface addList {
+    name: string, 
+    phone: number, 
+    email: string, 
+    address: string,
+    city: string, 
+    state: string,
+    zip: number, 
+    zone: string, 
+    region: string, 
+    landmark: string, 
+    primary: string
+}
   

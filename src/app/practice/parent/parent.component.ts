@@ -48,4 +48,11 @@ export class ParentComponent implements AfterViewInit{
    loadContent(){
     this.viewContainer.createComponent(ChildBComponent)
    }
+
+  //  eventemiter practice 
+
+  onProductAdded(productId: number){
+    console.log('product added :', productId);
+    
+  }
 }
