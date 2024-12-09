@@ -44,3 +44,30 @@ export class ChildBComponent {
     
   }
 }
+
+
+class ParentClass {
+  name: any;
+  constructor(name: any) {
+    this.name = name;
+  }
+  showName() {
+    return `Hello, ${this.name}`;
+  }
+}
+
+class ChildClass extends ParentClass {
+  age: number;
+  constructor(name: string, age: number) {
+    super(name); 
+    this.age = age;
+  }
+  showAge() {
+    return `${this.name} is ${this.age} years old`;
+  }
+}
+
+
+const child = new ChildClass("Arif", 25);
+console.log(child.showName()); // "Hello, Arif"
+console.log(child.showAge()); // "Arif is 25 years old"
